@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'z_w^@sw+5nspn0#0zs^6$&z7b^w$x=&07_$5@p$iqwaki2ohgu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['appcontroltimeappak.pythonanywhere.com']
+ALLOWED_HOSTS = ['controltimeappak.pythonanywhere.com']
 
 
 # Application definition
@@ -44,7 +45,7 @@ INSTALLED_APPS = [
     'account',
     'personal',
     'rest_framework',
-    
+
 ]
 
 MIDDLEWARE = [
@@ -62,8 +63,8 @@ ROOT_URLCONF = 'aplikacja.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/Users/artur/Desktop/nowy_zn_2/work-time-management/projekt/src/aplikacja/Templates'],
-        #'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        #'DIRS': ['home/ControlTimeAppAK/server/Templates/'],
+        'DIRS': [os.path.join(BASE_DIR, 'Templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,3 +130,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+#STATIC_ROOT ='/home/ControlTimeAppAK/server/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+

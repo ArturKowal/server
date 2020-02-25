@@ -3,7 +3,6 @@ from django.contrib.auth.forms import UserCreationForm
 from account.models import Account
 from django.contrib.auth import authenticate
 
-from account.models import Account
 
 class RegistrationForm(UserCreationForm):
 	email=forms.EmailField(max_length=60)

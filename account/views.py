@@ -40,7 +40,7 @@ def login_view(request):
 	context = {}
 
 	user = request.user
-	if user.is_authenticated: 
+	if user.is_authenticated:
 		return redirect("home")
 
 	if request.POST:
@@ -73,9 +73,9 @@ def account_view(request):
 		if form.is_valid():
 			form.initial = {
 					"email": request.POST['email'],
-					"first_name": request.POST['first_name'],
-					"ident": request.POST['ident'],
-					"last_name": request.POST['last_name'],
+					#"first_name": request.POST['first_name'],
+					#"ident": request.POST['ident'],
+					#"last_name": request.POST['last_name'],
 			}
 			form.save()
 			context['success_message'] = "Updated"
@@ -83,10 +83,10 @@ def account_view(request):
 		form = AccountUpdateForm(
 
 			initial={
-					"email": request.user.email, 
-					"first_name": request.user.first_name,
-					"ident": request.user.ident,
-					"last_name": request.user.last_name,
+					"email": request.user.email,
+					#"first_name": request.user.first_name,
+					#"ident": request.user.ident,
+					#"last_name": request.user.last_name,
 				}
 			)
 

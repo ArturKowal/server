@@ -7,16 +7,17 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
-@api_view(['GET']) 
+@api_view(['GET'])
 def api_detail_who_view(request,ident):
 	try:
-		person = User.objects.get(ident=ident)
-	except Person.DoesNotExist:
+	    person = User.objects.get(ident=ident)
+	except person.DoesNotExist:
 		return Response(status=status.HTTP_404_NOT_FOUND)
 	#logs = Log.objects.all()
 	if request.method=="GET":
 		serializer = PersonSerializer(person)
-		return Response(serializer.data)
+		return Response({'person': [serializer.data]})
+		#return Response(serializer.data)
 
 
 
