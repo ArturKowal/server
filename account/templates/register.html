@@ -55,6 +55,7 @@
     {{field}}
 
     {% if field.help_text %}
+    <br>
       <small style="color: gray;">{{field.help_text}}</small>
     {% endif %}
 
@@ -62,7 +63,7 @@
       <p style="color: red;">{{error}} </p>
     {% endfor %}
   </p>
-  {% endfor %} 
+  {% endfor %}
   <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
 </form>
 </center>>

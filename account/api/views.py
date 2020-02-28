@@ -8,10 +8,10 @@ User = get_user_model()
 
 
 @api_view(['GET'])
-def api_detail_who_view(request,ident):
+def api_detail_who_view(request,id):
 	try:
-	    person = User.objects.get(ident=ident)
-	except person.DoesNotExist:
+		person = User.objects.get(id=id)
+	except Person.DoesNotExist:
 		return Response(status=status.HTTP_404_NOT_FOUND)
 	#logs = Log.objects.all()
 	if request.method=="GET":

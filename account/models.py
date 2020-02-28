@@ -11,7 +11,7 @@ class MyAccountManager(BaseUserManager):
 		if not last_name:
 			raise ValueError('Users must have a last name')
 		if not ident:
-			raise ValueError('Users must have a ident')
+			raise ValueError('Users must have a last ident')
 
 		user = self.model(
 			email=self.normalize_email(email),
@@ -41,7 +41,7 @@ class MyAccountManager(BaseUserManager):
 
 class Account(AbstractBaseUser):
 	email 					= models.EmailField(verbose_name="email", max_length=60, unique=True)
-	ident					= models.PositiveIntegerField(verbose_name='identyfikator ',default=1234, validators=[MinValueValidator(1000), MaxValueValidator(9999)],unique=True)
+	ident					= models.PositiveIntegerField(verbose_name='Pin ',default=1234, validators=[MinValueValidator(1), MaxValueValidator(99999)],help_text=" Pin to wartosc od 1 do 99999, będzie to twój pin do aplikacji")
 	first_name 				= models.CharField(max_length=30, unique=False,verbose_name='Imie ')
 	last_name 				= models.CharField(max_length=30, unique=False,verbose_name='Nazwisko ')
 	position				= models.CharField(verbose_name="Stanowisko ",max_length=40,unique=False,blank=True)
@@ -50,7 +50,7 @@ class Account(AbstractBaseUser):
 	last_login				= models.DateTimeField(verbose_name='Ostatnio zalogowany', auto_now=True)
 	is_admin				= models.BooleanField(default=False)
 	is_active				= models.BooleanField(default=True)
-	is_staff				= models.BooleanField(default=False)
+	is_staff				= models.BooleanField(default=True)
 	is_superuser			= models.BooleanField(default=False)
 
 
