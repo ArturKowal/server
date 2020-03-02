@@ -6,5 +6,4 @@ app_name = 'Logs'
 
 urlpatterns = [
 	path('create',api_create_log_view,name="create"),
-
 ]
